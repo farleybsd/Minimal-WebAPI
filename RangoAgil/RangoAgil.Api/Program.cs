@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RangoAgil.Api.DbContexts;
+using RangoAgil.Api.EndPointHandler;
 using RangoAgil.Api.Entities;
 using RangoAgil.Api.Models;
 
@@ -22,17 +23,19 @@ var rangosEndPoint = app.MapGroup("/rangos");
 var rangosComIdEndPoint = rangosEndPoint.MapGroup("/{rangoid:int}");
 var ingredientesEndPoint = rangosComIdEndPoint.MapGroup("/ingredientes");
 
-rangosEndPoint.MapGet("", async Task<Results<NoContent,Ok<IEnumerable<RangoDTO>>>> (RangoDbContext rangoDbContext, [FromQuery(Name = "name")] string? rangonome, IMapper mapper) =>
-{
-    var rangosEntity = await rangoDbContext.Rangos
-                                .Where(x => rangonome == null || x.Nome.ToLower().Contains(rangonome.ToLower()))
-                                .ToListAsync();
+rangosEndPoint.MapGet("", RangoHandlers.GetRangosAsync);
 
-    if (rangosEntity.Count <= 0 || rangosEntity == null)
-        return TypedResults.NoContent();
-    else
-       return TypedResults.Ok(mapper.Map<IEnumerable<RangoDTO>>(rangosEntity));
-});
+//rangosEndPoint.MapGet("", async Task<Results<NoContent,Ok<IEnumerable<RangoDTO>>>> (RangoDbContext rangoDbContext, [FromQuery(Name = "name")] string? rangonome, IMapper mapper) =>
+//{
+//    var rangosEntity = await rangoDbContext.Rangos
+//                                .Where(x => rangonome == null || x.Nome.ToLower().Contains(rangonome.ToLower()))
+//                                .ToListAsync();
+
+//    if (rangosEntity.Count <= 0 || rangosEntity == null)
+//        return TypedResults.NoContent();
+//    else
+//       return TypedResults.Ok(mapper.Map<IEnumerable<RangoDTO>>(rangosEntity));
+//});
 
 rangosComIdEndPoint.MapGet("", async (int id, RangoDbContext rangoDbContext, IMapper mapper) =>
 {
