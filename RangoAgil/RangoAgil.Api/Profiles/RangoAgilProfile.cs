@@ -17,4 +17,3 @@ public class RangoAgilProfile : Profile
                 o => o.MapFrom(s => s.Rangos.First().Id));
     }
 }
-

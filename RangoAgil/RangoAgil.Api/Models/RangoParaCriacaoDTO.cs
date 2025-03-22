@@ -6,6 +6,5 @@ public class RangoParaCriacaoDTO
 {
     [Required]
     [StringLength(100, MinimumLength = 3)]
-    public required string Nome { get; set; }
+    public string Nome { get; set; }
 }
-

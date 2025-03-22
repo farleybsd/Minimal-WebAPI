@@ -95,4 +95,3 @@ public class RangoDbContext(DbContextOptions<RangoDbContext> options) : DbContex
         base.OnModelCreating(modelBuilder);
     }
 }
-

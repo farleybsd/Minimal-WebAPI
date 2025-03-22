@@ -1,6 +1,6 @@
 ﻿namespace RangoAgil.Api.Models;
+
 public class RangoParaAtualizacaoDTO
 {
-    public required string Nome { get; set; }
+    public string Nome { get; set; }
 }
-

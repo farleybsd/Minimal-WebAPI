@@ -10,13 +10,12 @@ public class Ingrediente
 
     [Required]
     [MaxLength(200)]
-    public required string Nome { get; set; }
+    public string Nome { get; set; }
 
     public ICollection<Rango> Rangos { get; set; } = [];
 
     public Ingrediente()
     {
-
     }
 
     [SetsRequiredMembers]
@@ -26,4 +25,3 @@ public class Ingrediente
         Nome = nome;
     }
 }
-
