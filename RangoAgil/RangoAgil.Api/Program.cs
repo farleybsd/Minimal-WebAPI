@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RangoAgil.Api.DbContexts;
 using RangoAgil.Api.Extensions;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +15,7 @@ builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler();
 
