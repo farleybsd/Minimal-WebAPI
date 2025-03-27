@@ -1,0 +1,8 @@
+﻿ dotnet user-jwts create --audience dotnet-user-jwts
+
+New JWT saved with ID 'f4617dbb'.
+Name: Lenovo
+Audience(s): dotnet-user-jwts
+
+Token: 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikxlbm92byIsInN1YiI6Ikxlbm92byIsImp0aSI6ImY0NjE3ZGJiIiwiYXVkIjoiZG90bmV0LXVzZXItand0cyIsIm5iZiI6MTc0MzA5NzY4MywiZXhwIjoxNzUxMDQ2NDgzLCJpYXQiOjE3NDMwOTc2ODcsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.rsEkczW9i9T7GNNT7SrB0FQNQJW_EbY1oAtO98vVUU0
